@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Laravel\Socialite\Facades\Socialite;
+use League\Flysystem\Exception;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -71,13 +72,5 @@ class AuthController extends Controller
         ]);
     }
 
-    public function redirectToAuthenticationServiceProvider($provider)
-    {
-        return Socialite::driver($provider)->redirect();
-    }
 
-    public function handleAuthenticationServiceProviderCallback($provider)
-    {
-       // return Socialite::driver('Google')->redirect();
-    }
 }
