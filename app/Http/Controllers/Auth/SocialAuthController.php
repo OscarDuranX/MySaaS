@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use App\OAuthIdentity;
 use App\Http\Controllers\Controller;
@@ -14,19 +14,15 @@ use App\User;
 
 class SocialAuthController extends Controller
 {
-    public function redirectToProvider($provider)
-    {
-        return Socialite::driver($provider)->redirect();
-    }
 
-    public function redirectToAuthenticationServiceProvider($provider, Socialite $socialite)
+    public function redirectToProvider($provider)
     {
 //        return $this->app->make('socialite')->driver($provider)->redirect();
         return Socialite::driver($provider)->redirect();
 //        return $socialite->redirect();
     }
 
-    public function handleAuthenticationServiceProviderCallback($provider)
+    public function handleProviderCallback($provider)
     {
         try{
             $user = Socialite::driver($provider)->user();
@@ -50,6 +46,7 @@ class SocialAuthController extends Controller
             return $authUser;
         return $this->createUser($providerUser, $provider);
     }
+
     private function createUser($providerUser, $provider){
         if (! $user = $this->userExistsByEmail($providerUser)) {
             $user = $this->newUser();
