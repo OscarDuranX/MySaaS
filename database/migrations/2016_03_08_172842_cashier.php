@@ -18,7 +18,7 @@ class Cashier extends Migration
             $table->string('card_last_four')->nullable();
         });
 
-        Schema::create('subscriptions', function ($table) {
+       /* Schema::create('subscriptions', function ($table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name');
@@ -28,7 +28,7 @@ class Cashier extends Migration
             $table->timestamp('trial_ends_at')->nullable();
             $table->timestamp('ends_at')->nullable();
             $table->timestamps();
-        });
+        });*/
     }
 
     /**
@@ -39,9 +39,8 @@ class Cashier extends Migration
     public function down()
     {
         Schema::table('users', function ($table) {
-            $table->dropColumn('stripe_id');
-            $table->dropColumn('card_brand');
-            $table->dropColumn('card_last_four');
+            $table->dropColumn(['stripe_id','card_brand','card_brand','card_last_four']);
         });
+        Schema::drop('subscriptions');
     }
 }

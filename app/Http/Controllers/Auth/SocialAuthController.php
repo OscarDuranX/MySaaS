@@ -30,7 +30,7 @@ class SocialAuthController extends Controller
             return Redirect::to('auth/'. $provider);
         }
 
-        dd($user);
+        //dd($user);
 
         $authUser= $this->findOrCreateUser($user, $provider);
 
@@ -68,7 +68,7 @@ class SocialAuthController extends Controller
     }
     private function newUser()
     {
-        $user_model = Config::get('acacha-socialite.model');
+        $user_model = Config::get('oscar-socialite.model');
         return new $user_model;
     }
     private function userExistsByProviderUserId($providerUser)

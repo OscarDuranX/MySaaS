@@ -25,7 +25,7 @@
 
         @include('auth.partials.register')
 
-    </div><!-- /.register-box -->
+
 
 
     <div class="register-box-body">
@@ -63,6 +63,8 @@
     </form>
 </div>
 
+    </div><!-- /.register-box -->
+
     @include('layouts.partials.scripts_auth')
 
 
@@ -72,7 +74,7 @@
 
     <script type="text/javascript">
         // This identifies your website in the createToken call below
-        Stripe.setPublishableKey(' sk_test_VETTeOdV24g7g3g1DtSmJG82 ');
+        Stripe.setPublishableKey('sk_test_VETTeOdV24g7g3g1DtSmJG82 ');
         // ...
 
         jQuery(function($) {
