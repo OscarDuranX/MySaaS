@@ -41,6 +41,9 @@ Route::group(['middleware' => ['web']], function () {
 
 
 
+    //Route::post('registerAndSubscribeToStrip', '@ReportsController');
+
+    Route::get('reports/dailySales','ReportsController@dailySales');
 
 
 });
