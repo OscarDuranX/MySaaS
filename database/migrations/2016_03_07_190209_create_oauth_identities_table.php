@@ -23,7 +23,7 @@ class CreateOauthIdentitiesTable extends Migration
      */
     public function __construct( )
     {
-        $this->authenticationProvidersTable = Config::get('acacha-socialite.table');
+        $this->authenticationProvidersTable = Config::get('oscar-socialite.table');
     }
     /**
      * Migration up
@@ -37,8 +37,8 @@ class CreateOauthIdentitiesTable extends Migration
             $table->string('provider');
             $table->string('access_token');
             $table->string('avatar');
-            $table->string('name');
-            $table->string('nickname')->nullable();;
+            $table->string('name')->nullable();;
+            $table->string('nickname')->nullable();
             $table->timestamps();
         });
     }

@@ -12,22 +12,22 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-//        Schema::create('password_resets', function (Blueprint $table) {
-//            $table->string('email')->index();
-//            $table->string('token')->index();
-//            $table->timestamp('created_at');
-//
-//        });
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token')->index();
+            $table->timestamp('created_at');
 
-        $tableName = Config::get('eloquent-oauth.table');
-        Schema::create($tableName, function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->string('provider_user_id');
-            $table->string('provider');
-            $table->string('access_token');
-            $table->timestamps();
         });
+
+//        $tableName = Config::get('eloquent-oauth.table');
+//        Schema::create($tableName, function (Blueprint $table) {
+//            $table->increments('id');
+//            $table->integer('user_id')->unsigned();
+//            $table->string('provider_user_id');
+//            $table->string('provider');
+//            $table->string('access_token');
+//            $table->timestamps();
+//        });
     }
 
     /**

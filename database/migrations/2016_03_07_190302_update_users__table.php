@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpadteUsersTable extends Migration
+class UpdateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,6 +13,7 @@ class UpadteUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function ($table) {
+            $table->string('name')->nullable()->change();
             $table->string('password')->nullable()->change();
             $table->string('avatar')->nullable();
             $table->string('nickname')->nullable();
