@@ -72,9 +72,9 @@
             <!-- Organization Name / Date -->
             <td>
                 <br><br>
-                <strong>To:</strong> {{ $user->email ?: $user->name }}
+                <strong>To:</strong> {{ $email ?: $name }}
                 <br>
-                <strong>Date:</strong> {{ $invoice->date()->toFormattedDateString() }}
+                <strong>Date:</strong> DATE HERE
             </td>
         </tr>
         <tr valign="top">
@@ -98,7 +98,7 @@
                 <!-- Invoice Info -->
                 <p>
                     <strong>Product:</strong> {{ $product }}<br>
-                    <strong>Invoice Number:</strong> {{ $id or $invoice->id }}<br>
+                    <strong>Invoice Number:</strong> ID HERE<br>
                 </p>
 
                 <!-- Extra / VAT Information -->
@@ -122,45 +122,40 @@
                     <tr>
                         <td>Starting Balance</td>
                         <td>&nbsp;</td>
-                        <td>{{ $invoice->startingBalance() }}</td>
+                        <td>Balance here!</td>
                     </tr>
 
                     <!-- Display The Invoice Items -->
-                    @foreach ($invoice->invoiceItems() as $item)
+                    @foreach ($descriptions as $description)
                         <tr>
-                            <td colspan="2">{{ $item->description }}</td>
-                            <td>{{ $item->total() }}</td>
+                            <td colspan="2">{{ $description }}</td>
+                            <td>TOTAL here</td>
                         </tr>
                         @endforeach
 
                                 <!-- Display The Subscriptions -->
-                        @foreach ($invoice->subscriptions() as $subscription)
+                        @foreach ($subscriptions as $subscription)
                             <tr>
-                                <td>Subscription ({{ $subscription->quantity }})</td>
-                                <td>{{ $subscription->startDate() }} - {{ $subscription->endDate() }}</td>
-                                <td>{{ $subscription->total() }}</td>
+                                <td>Subscription {{$subscription}} </td>
+                                <td>Start date - Start end</td>
+                                <td>Total here</td>
                             </tr>
                             @endforeach
 
                                     <!-- Display The Discount -->
-                            @if ($invoice->hasDiscount())
+                            @if ($hasDiscount)
                                 <tr>
-                                    @if ($invoice->discountIsPercentage())
-                                        <td>{{ $invoice->coupon() }} ({{ $invoice->percentOff() }}% Off)</td>
-                                    @else
-                                        <td>{{ $invoice->coupon() }} ({{ $invoice->amountOff() }} Off)</td>
-                                    @endif
                                     <td>&nbsp;</td>
-                                    <td>-{{ $invoice->discount() }}</td>
+                                    <td>-{{ $discount }}</td>
                                 </tr>
                                 @endif
 
                                         <!-- Display The Tax Amount -->
-                                @if ($invoice->tax_percent)
+                                @if ($tax_percent)
                                     <tr>
-                                        <td>Tax ({{ $invoice->tax_percent }}%)</td>
+                                        <td>Tax ({{ $tax_percent }})</td>
                                         <td>&nbsp;</td>
-                                        <td>{{ Laravel\Cashier\Cashier::formatAmount($invoice->tax) }}</td>
+                                        <td>{{ $tax }}</td>
                                     </tr>
                                     @endif
 
@@ -168,7 +163,7 @@
                                     <tr style="border-top:2px solid #000;">
                                         <td>&nbsp;</td>
                                         <td style="text-align: right;"><strong>Total</strong></td>
-                                        <td><strong>{{ $invoice->total() }}</strong></td>
+                                        <td><strong>Total here</strong></td>
                                     </tr>
                 </table>
             </td>

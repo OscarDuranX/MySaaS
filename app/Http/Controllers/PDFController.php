@@ -49,8 +49,7 @@ class PDFController extends Controller
 
     public function invoiceHtml()
     {
-        $data =  ['vendor' => 'prova',
-                    'user' => 'Oscar'];
+        $data = $this->getData();
 
         return view('receipt', $data);
     }
@@ -65,17 +64,18 @@ class PDFController extends Controller
         $descriptions = ["description1", "description2", "description3", "description4"];
         $subscriptions = [45, 46, 145, 458];
         $data = [
-            'vendor' => 'PROVA',
-            'user' => 'Sergi',
-            'email' => 'sergiturbadenas@gmail.com',
-            'name' => 'Sergi Tur',
+            'vendor' => 'Proves',
+            'user' => 'oscar',
+            'email' => 'Oscar@gmail.com',
+            'name' => 'Oscar Duran!',
             'product' => 'Producte 1',
             'descriptions' => $descriptions,
             'subscriptions' => $subscriptions,
             'hasDiscount' => true,
-            'discount' => "20%",
-            'tax_percent' => "23%",
-            'tax' => "456"
+            'discount' => "80%",
+            'tax_percent' => "29%",
+            'tax' => "456",
+            'street' => "Tumamammetoca"
         ];
         return $data;
     }
