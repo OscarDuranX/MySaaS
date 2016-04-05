@@ -6,30 +6,26 @@ use DOMPDF;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Response;
+use Illuminate\Http\Response;
+use View;
 
 class PDFController extends Controller
 {
     public function downloadInvoice()
     {
-        if(!defined('DOMPDF_ENABLE_AUTOLOAD')){
+
+        if (! defined('DOMPDF_ENABLE_AUTOLOAD')) {
             define('DOMPDF_ENABLE_AUTOLOAD', false);
         }
-
-        if(file_exists($configPath = base_path().'/vendor/dompdf/dompdf/dompdf_config.inc.php')){
+        if (file_exists($configPath = base_path().'/vendor/dompdf/dompdf/dompdf_config.inc.php')) {
             require_once $configPath;
         }
-
         $dompdf = new Dompdf();
-
-
-
-//        $dompdf->load_html("<h1> Hola </h1>");
+    //    $dompdf->load_html("<h1>Hola</h1>");
         $dompdf->load_html($this->view($this->getData())->render());
         $dompdf->render();
         return $this->download($dompdf->output());
 
-        //return view('invoice');
     }
 
 
@@ -37,8 +33,10 @@ class PDFController extends Controller
     {
 //        $filename = 'prova_'.$this->date()->month.'_'.$this->date()->year.'.pdf';
         $filename = "hola.pdf";
+//        dd($pdf);
         return new Response($pdf, 200, [
             'Content-Description' => 'File Transfer',
+          //  'Content-Disposition' => 'attachment; filename="'.$filename.'"',
             'Content-Disposition' => 'filename="'.$filename.'"',
             'Content-Transfer-Encoding' => 'binary',
             'Content-Type' => 'application/pdf',
