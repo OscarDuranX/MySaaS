@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -44,6 +46,10 @@ Route::group(['middleware' => ['web']], function () {
     //Route::post('registerAndSubscribeToStrip', '@ReportsController');
 
     Route::get('reports/dailySales','ReportsController@dailySales');
+
+    Route::get('downloadInvoice','PDFController@downloadInvoice');
+
+    Route::get('Invoice','PDFController@invoiceHtml');
 
 
 });
