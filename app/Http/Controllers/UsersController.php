@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Cache;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -40,7 +41,7 @@ class UsersController extends Controller
         $user->save;
 
        // Cache::flush();
-        Cache::forget('query.users');
+        Event::forget('user.change');
     }
 
     public function destroy($id)
@@ -48,6 +49,6 @@ class UsersController extends Controller
         User::destroy($id);
 
        // Cache::flush(); //Ens carrega tota la base de dades i ens la refresca
-        Cache::forget('users');  // Ens refresca domes el+
+        Event::forget('user.change');  // Ens refresca domes el+
     }
 }

@@ -56,6 +56,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('users', 'UsersController@index');
     Route::post('users', 'UsersController@store');
     Route::put('users', 'UsersController@update');
+    Route::put('users', 'UsersController@delete');
 
 
 });
