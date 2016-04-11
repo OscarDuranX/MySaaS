@@ -53,5 +53,9 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('JsPDF', 'JsPDFController@index');
 
+    Route::get('users', 'UsersController@index');
+    Route::post('users', 'UsersController@store');
+    Route::put('users', 'UsersController@update');
+
 
 });
