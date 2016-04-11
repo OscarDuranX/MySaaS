@@ -39,6 +39,7 @@
                 <ul class="treeview-menu">
                     <li><a href="{{ url('Invoice') }}">Mostra PDF RECEIPT</a></li>
                     <li><a href="{{ url('downloadInvoice') }}">Mostra PDF Propi</a></li>
+                    <li><a href="{{ url('JsPDF') }}">Mostra JsPDF</a></li>
                 </ul>
             </li>
 

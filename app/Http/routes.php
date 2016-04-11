@@ -51,5 +51,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('Invoice','PDFController@invoiceHtml');
 
+    Route::get('JsPDF', 'JsPDFController@index');
+
 
 });
