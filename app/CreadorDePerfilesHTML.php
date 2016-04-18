@@ -9,7 +9,7 @@
 namespace App;
 
 
-class CreadorDePerfilesHTML implements Profile extends AbstractProfiler
+class CreadorDePerfilesHTML extends AbstractProfiler
 {
 
     public function show($user)

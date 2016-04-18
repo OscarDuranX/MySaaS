@@ -9,7 +9,7 @@
 namespace App;
 
 
-class CreadorDePerfilesJson implements Profile extends AbstractProfiler
+class CreadorDePerfilesJson extends AbstractProfiler
 {
     public function show($user)
     {
