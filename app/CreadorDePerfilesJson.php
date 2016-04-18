@@ -3,27 +3,21 @@
  * Created by PhpStorm.
  * User: oscar
  * Date: 18/04/16
- * Time: 16:58
+ * Time: 17:14
  */
 
 namespace App;
 
 
-class CreadorDePerfilesHTML implements Profile extends AbstractProfiler
+class CreadorDePerfilesJson implements Profile extends AbstractProfiler
 {
-
     public function show($user)
     {
-        return  "<div>
+        return "<JSON>
                 Id: <b>". $this->getuserId($user)     ."</b></br>
                 Name: " . $user->name . "
-                </div>";
+                </JSON>";
+
     }
-
-
-
-
-
-
 
 }

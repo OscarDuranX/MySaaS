@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CreadorDePerfilesHTML;
 use App\User;
 use Cache;
 use Illuminate\Console\Scheduling\Event;
@@ -54,8 +55,4 @@ class UsersController extends Controller
         Event::forget('user.change');  // Ens refresca domes el+
     }
 
-    public function profilefunction()
-    {
-       return Auth::user()->profile();
-    }
 }

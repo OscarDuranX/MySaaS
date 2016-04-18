@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
     public function profile($creadorDePrefiles){
-        return $creadorDePrefiles->show();
+        return $creadorDePrefiles->show($this);
 //        return "<div>
 //                Id: <b>". $this->id     ."</b></br>
 //                Name: " . $this->name . "
