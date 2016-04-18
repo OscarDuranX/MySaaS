@@ -29,7 +29,9 @@ class UsersController extends Controller
     {
         User::create(['name' => 'Paco','email'=>'pepito@pepita.get']);
 
-        Cache::forget('query.users');
+        //Cache::forget('query.users');
+
+        Event::fire(new UserHasChanged());
     }
 
     public function update()
@@ -50,5 +52,10 @@ class UsersController extends Controller
 
        // Cache::flush(); //Ens carrega tota la base de dades i ens la refresca
         Event::forget('user.change');  // Ens refresca domes el+
+    }
+
+    public function profilefunction()
+    {
+       return Auth::user()->profile();
     }
 }

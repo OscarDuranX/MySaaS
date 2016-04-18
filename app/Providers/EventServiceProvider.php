@@ -17,6 +17,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserLogged' => [
             'App\Listeners\UserUpdateLastLogin',
         ],
+        'App\Events\UserHasChanged' => [
+            'App\Listeners\UserCacheForget',
+        ],
     ];
 
     /**
@@ -27,8 +30,8 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(DispatcherContract $events)
     {
-        parent::boot($events);
-
+        //parent::boot($events);
+       // Cache::forget('query.users');
         //
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Listeners;
 
-use App\Events\UserLogged;
+use App\Events\UserHasChanged;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class UserUpdateLastLogin
+class UserCacheForget
 {
     /**
      * Create the event listener.
@@ -21,11 +21,11 @@ class UserUpdateLastLogin
     /**
      * Handle the event.
      *
-     * @param  UserLogged  $event
+     * @param  UserHasChanged  $event
      * @return void
      */
-    public function handle(UserLogged $event)
+    public function handle(UserHasChanged $event)
     {
-        // id: $event->user->id
+        //
     }
 }
