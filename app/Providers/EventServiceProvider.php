@@ -20,6 +20,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserHasChanged' => [
             'App\Listeners\UserCacheForget',
         ],
+        'App\Events\ShotoutAddedEvent' => [
+            'App\Listeners\ShouldBroadcast',
+        ],
     ];
 
     /**
